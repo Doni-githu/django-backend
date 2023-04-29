@@ -1,4 +1,3 @@
-
 from .serializers import AccountSerializers, BuySerializers, ChatGSerializers, ChatOSerializers, ProductSerializers, ComentariyaSerializers
 from rest_framework import viewsets
 from .models import Buy, ChatGlobal, ChatOnly, Comentariya, Product, Account
@@ -14,9 +13,6 @@ class AccountView(viewsets.ModelViewSet):
 class BuyView(viewsets.ModelViewSet):
     serializer_class = BuySerializers
     queryset = Buy.objects.all()
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
-    
 
     def create(self, request, *args, **kwargs):
         buy_data = request.data 
