@@ -25,6 +25,8 @@ class BuySerializers(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Buy
+        depth = 1
+
 
 class ChatGSerializers(serializers.ModelSerializer):
     class Meta:

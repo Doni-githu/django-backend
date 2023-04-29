@@ -62,10 +62,11 @@ class Account(AbstractBaseUser):
 class Product(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images/product/', null=True, )
     body = models.TextField()
     cost = models.IntegerField()
     like = models.IntegerField(default=0)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True,)
 
     def __str__(self):
         return self.title
@@ -75,14 +76,17 @@ class Comentariya(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
+    userImage = models.TextField(null=True)
 
     def __str__(self):
         return self.title
 
 
+
 class ChatGlobal(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
+    title = models.TextField()
+    userImage = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -91,8 +95,9 @@ class ChatGlobal(models.Model):
 class ChatOnly(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     friend = models.IntegerField()
-    title = models.CharField(max_length=200)
+    title = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    userImage = models.TextField(null=True)
 
     def __str__(self):
         return self.title
@@ -108,4 +113,4 @@ class Buy(models.Model):
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
-	
+
