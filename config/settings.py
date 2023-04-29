@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-vjgethh_zpm7=)$%(_ngv-xqxbffv)mz$=a(wq7b!#j&myuwaj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://react-frontend-gn1t.onrender.com', 'http://localhost:3000']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
